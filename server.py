@@ -7,16 +7,16 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def form():
-    source_text = formatted_text = ''
+    source_text = processed_text = ''
 
     if request.method == 'POST':
         source_text = request.form['text']
-        formatted_text = get_processed_text(source_text)
+        processed_text = get_processed_text(source_text)
 
     return render_template(
         'form.html',
         source_text=source_text,
-        formatted_text=formatted_text,
+        processed_text=processed_text,
     )
 
 
