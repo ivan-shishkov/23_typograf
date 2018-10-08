@@ -5,6 +5,8 @@ processing_rules = [
     (r'"([^>]*?)"(?![^<]*>)', u'\u00ab\\1\u00bb'),
     # replace quotes ' with french quotes
     (r'\'(.*?)\'', u'\u00ab\\1\u00bb'),
+    # replace hyphen with m-dash
+    (r'(\s)-(\s)', u'\\1\u2014\\2'),
 ]
 
 
