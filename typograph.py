@@ -1,7 +1,10 @@
 import re
 
 processing_rules = [
-    (r'\s+', ' '),
+    # replace quotes " with french quotes
+    (r'"([^>]*?)"(?![^<]*>)', u'\u00ab\\1\u00bb'),
+    # replace quotes ' with french quotes
+    (r'\'(.*?)\'', u'\u00ab\\1\u00bb'),
 ]
 
 
