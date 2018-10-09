@@ -7,6 +7,8 @@ processing_rules = [
     (r'\'(.*?)\'', u'\u00ab\\1\u00bb'),
     # replace hyphen with m-dash
     (r'(\s)-(\s)', u'\\1\u2014\\2'),
+    # replace hyphen with n-dash in phone numbers
+    (r'(\b\d{1,4}\b)-(?=\b\d{1,4}\b)', u'\\1\u2013'),
 ]
 
 
