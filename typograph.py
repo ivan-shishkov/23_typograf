@@ -1,6 +1,10 @@
 import re
 
 processing_rules = [
+    # remove redundant spaces
+    (r'[ ]{2,}', ' '),
+    # remove redundant line breaks
+    (r'(?:\r\n){2,}', '\r\n'),
     # replace quotes " with french quotes
     (r'"([^>]*?)"(?![^<]*>)', u'\u00ab\\1\u00bb'),
     # replace quotes ' with french quotes
