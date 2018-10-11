@@ -6,15 +6,17 @@ processing_rules = [
     # remove redundant line breaks
     (r'(?:\r\n){2,}', '\r\n'),
     # replace quotes " with french quotes
-    (r'"([^>]*?)"(?![^<]*>)', u'\u00ab\\1\u00bb'),
+    (r'"([^>]*?)"(?![^<]*>)', '\u00ab\\1\u00bb'),
     # replace quotes ' with french quotes
-    (r'\'(.*?)\'', u'\u00ab\\1\u00bb'),
+    (r'\'(.*?)\'', '\u00ab\\1\u00bb'),
     # replace hyphen with m-dash
-    (r'(\s)-(\s)', u'\\1\u2014\\2'),
+    (r'(\s)-(\s)', '\\1\u2014\\2'),
     # replace hyphen with n-dash in phone numbers
-    (r'(\b\d{1,4}\b)-(?=\b\d{1,4}\b)', u'\\1\u2013'),
+    (r'(\b\d{1,4}\b)-(?=\b\d{1,4}\b)', '\\1\u2013'),
     # bind numbers with next words using a non-breaking space
-    (r'(\b\d+\b)\s([а-яА-ЯёЁ]+)', u'\\1\u00a0\\2'),
+    (r'(\b\d+\b)\s(\b[а-яА-ЯёЁ]+\b)', '\\1\u00a0\\2'),
+    # bind words of 1-2 characters with next words using a non-breaking space
+    (r'(\b[а-яА-ЯёЁ]{1,2}\b)\s(\b[а-яА-ЯёЁ]+\b)', '\\1\u00a0\\2'),
 ]
 
 
